@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jagriti ❤️</title>
+<title>Jagriti 🖤</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
@@ -14,89 +14,84 @@ font-family:'Poppins',sans-serif;
 height:100vh;
 overflow:hidden;
 display:flex;
-align-items:center;
 justify-content:center;
-text-align:center;
-background:linear-gradient(to bottom right,#ffd6e8,#ff8fab);
-color:#fff;
+align-items:center;
+background:linear-gradient(to bottom right,#1a001a,#660033);
+color:white;
 }
 
-.container{padding:20px;max-width:90%;}
+.container{width:90%;max-width:500px;text-align:center;}
 
-h1{
-font-family:'Dancing Script',cursive;
-font-size:clamp(2.2rem,6vw,3.5rem);
+h1{font-family:'Dancing Script',cursive;font-size:28px;}
+
+#message{
+height:130px;
+overflow:auto;
+background:rgba(0,0,0,0.35);
+padding:12px;
+border-radius:15px;
+font-size:14px;
+margin-bottom:12px;
 }
 
-.bear{font-size:60px;animation:bounce 1.2s infinite;}
-@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
-
-.subtitle{font-style:italic;margin-bottom:10px;}
-
-.tap{font-size:14px;margin-bottom:15px;opacity:0.9;}
-
-#message{min-height:140px;white-space:pre-line;}
-
-.buttons{display:flex;gap:40px;justify-content:center;margin-top:20px;flex-wrap:wrap;}
+.buttons{display:flex;justify-content:center;gap:25px;}
 
 button{
-cursor:pointer;border:none;padding:15px 35px;font-size:18px;
+padding:12px 25px;
 border-radius:50px;
+border:none;
+font-size:16px;
 }
 
 #yesBtn{
 background:linear-gradient(45deg,#ff1744,#ff5252);
 color:white;
-box-shadow:0 0 15px rgba(255,0,60,0.7);
+box-shadow:0 0 15px rgba(255,0,60,0.8);
 }
 
-#noBtn{background:white;color:#ff1744;border:2px solid #ff1744;}
+#noBtn{
+background:white;
+color:#ff1744;
+border:2px solid #ff1744;
+}
 
 .heart{
-position:fixed;bottom:-20px;
+position:fixed;
+bottom:-20px;
 animation:floatUp linear infinite;
 }
 @keyframes floatUp{
 0%{transform:translateY(0);opacity:0;}
-10%{opacity:1;}
 100%{transform:translateY(-110vh);opacity:0;}
 }
 
 .celebration{
-position:fixed;inset:0;display:none;
-flex-direction:column;align-items:center;justify-content:center;
-background:linear-gradient(to bottom right,#ffd6e8,#ff8fab);
+position:fixed;
+inset:0;
+display:none;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:black;
 }
 
-.yay{font-size:clamp(3rem,8vw,6rem);animation:pulse 1s infinite;}
+.yay{font-size:55px;animation:pulse 1s infinite;color:#ff4d88;}
 @keyframes pulse{50%{transform:scale(1.2);}}
 
-.spin{font-size:60px;animation:spin 2s linear infinite;}
-@keyframes spin{100%{transform:rotate(360deg);}}
-
-.confetti{position:fixed;width:10px;height:10px;top:50%;left:50%;}
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 MUSIC -->
-<audio id="bgMusic" loop>
+<audio id="bgMusic" autoplay loop muted>
 <source src="https://pagalnew.com/download320/12837" type="audio/mpeg">
 </audio>
 
 <div class="container" id="mainContent">
 
-<div class="bear">🧸</div>
-
-<h1>Will You Be My Valentine, Jagriti? ❤️</h1>
-<div class="subtitle">I've been gathering courage to ask you this...</div>
-
-<div class="tap">🎧 Tap anywhere for a surprise...</div>
+<h1>Will You Be Mine, Jagriti? 🖤</h1>
 
 <div id="message"></div>
-
-<div>Every love story is beautiful, but ours is my favourite 💖</div>
 
 <div class="buttons">
 <button id="yesBtn">Yes 💖</button>
@@ -106,93 +101,92 @@ background:linear-gradient(to bottom right,#ffd6e8,#ff8fab);
 </div>
 
 <div class="celebration" id="celebration">
-<div class="yay">Yayyyy!!</div>
-<div class="spin">💃</div>
-<h2>I knew you'd say yes Jagriti… ❤️</h2>
+<div class="yay">Finally Mine 😈🖤</div>
+<h2>You can't escape my love ❤️</h2>
 </div>
 
 <script>
 
-// 🎵 MUSIC START ON FIRST TAP
-document.body.addEventListener("click", function () {
-document.getElementById("bgMusic").play();
-},{ once:true });
-
 const text = `Jagriti...
 
-Filmon mein suna tha ki jab sahi insaan milta hai
-toh dil khud hi background music baja deta hai… 🎶
+Pata nahi kab tum meri aadat ban gayi…
+par ab tumhare bina sab adhura lagta hai.
 
-Tum meri woh melody ho
-jo mere har din ko khoobsurat bana deti hai.
+Ye pyaar cute nahi hai…
+ye woh hai jo raat ko jagata hai,
+jo dil ko possessive banata hai,
+jo kehta hai…
 
-Tumse baat kiye bina din adhoora lagta hai,
-tumhari hasi mere liye duniya ki sabse pyaari jagah hai.
+Tum sirf meri ho 🖤
 
-Agar pyaar ek safar hai…
-toh main har janam tumhara co-passenger banna chahta hoon ❤️
-
-Will you be mine… forever?`;
+Forever starts with a YES.`;
 
 let i=0;
 function typeWriter(){
 if(i<text.length){
-document.getElementById("message").innerHTML+=text.charAt(i);
+message.innerHTML+=text.charAt(i);
 i++;
 setTimeout(typeWriter,35);
 }}
 typeWriter();
 
-const noBtn=document.getElementById("noBtn");
-const yesBtn=document.getElementById("yesBtn");
-const main=document.getElementById("mainContent");
-const celebration=document.getElementById("celebration");
 
-const noTexts=["Nope!","Try again!","Soch lo 😜","Not happening!","Think again!"];
-let noIndex=0;
+// 🎵 UNMUTE MUSIC ON FIRST TOUCH
+document.body.addEventListener("click",()=>{
+bgMusic.muted=false;
+bgMusic.play();
+},{once:true});
 
-function moveNo(){
-let x=Math.random()*(window.innerWidth-120);
-let y=Math.random()*(window.innerHeight-60);
-noBtn.style.position="fixed";
-noBtn.style.left=x+"px";
-noBtn.style.top=y+"px";
-noBtn.textContent=noTexts[noIndex++%noTexts.length];
-}
 
-noBtn.addEventListener("mouseover",moveNo);
+// 😈 DARK NO BUTTON TEXTS
+const noTexts=[
+"Na bolne ka option hi nahi hai 😌",
+"Bhag ke kahan jaogi? 🖤",
+"Your heart is already mine 😈",
+"Still pretending? 😏",
+"You belong with me 🔥",
+"Say yes… surrender 😌",
+"Mine. Only mine. 💖",
+"Wanna kiss me instead? 💋",
+"Wanna fuck 😈",
+"Last chance to be mine 🖤"
+];
+
+let index=0;
+
 noBtn.addEventListener("click",moveNo);
 noBtn.addEventListener("touchstart",moveNo);
 
+function moveNo(){
+noBtn.innerText=noTexts[index++ % noTexts.length];
+noBtn.style.position="fixed";
+noBtn.style.left=Math.random()*80+"vw";
+noBtn.style.top=Math.random()*80+"vh";
+}
+
+
+// 💖 YES
 yesBtn.addEventListener("click",()=>{
-main.style.display="none";
+mainContent.style.display="none";
 celebration.style.display="flex";
-launchConfetti();
+launchHearts();
 });
 
-function createHeart(){
+
+// 💖 FLOATING HEARTS
+function launchHearts(){
+setInterval(()=>{
 const heart=document.createElement("div");
 heart.className="heart";
-heart.textContent="💖";
+heart.textContent="🖤";
 heart.style.left=Math.random()*100+"vw";
 heart.style.fontSize=(Math.random()*20+15)+"px";
 heart.style.animationDuration=(Math.random()*5+5)+"s";
 document.body.appendChild(heart);
 setTimeout(()=>heart.remove(),10000);
+},300);
 }
-setInterval(()=>{for(let i=0;i<3;i++)createHeart();},800);
 
-function launchConfetti(){
-for(let i=0;i<120;i++){
-const conf=document.createElement("div");
-conf.className="confetti";
-conf.style.background=`hsl(${Math.random()*360},100%,50%)`;
-document.body.appendChild(conf);
-conf.animate([
-{transform:"translate(-50%,-50%)"},
-{transform:`translate(${(Math.random()-0.5)*1000}px,${(Math.random()-0.5)*1000}px)`}],
-{duration:1500,fill:"forwards"});
-}}
 </script>
 
 </body>
