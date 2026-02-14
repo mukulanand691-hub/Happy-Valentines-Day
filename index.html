@@ -55,16 +55,6 @@ color:#ff1744;
 border:2px solid #ff1744;
 }
 
-.heart{
-position:fixed;
-bottom:-20px;
-animation:floatUp linear infinite;
-}
-@keyframes floatUp{
-0%{transform:translateY(0);opacity:0;}
-100%{transform:translateY(-110vh);opacity:0;}
-}
-
 .celebration{
 position:fixed;
 inset:0;
@@ -83,8 +73,9 @@ background:black;
 
 <body>
 
+<!-- 🎵 MUSIC -->
 <audio id="bgMusic" autoplay loop muted>
-<source src="https://pagalnew.com/download320/12837" type="audio/mpeg">
+<source src="https://drive.google.com/uc?export=download&id=1j4ZnEx-iUvBcRK3_O-4CCNzY7-LyKNWV" type="audio/mpeg">
 </audio>
 
 <div class="container" id="mainContent">
@@ -114,8 +105,7 @@ par ab tumhare bina sab adhura lagta hai.
 
 Ye pyaar cute nahi hai…
 ye woh hai jo raat ko jagata hai,
-jo dil ko possessive banata hai,
-jo kehta hai…
+jo dil ko possessive banata hai…
 
 Tum sirf meri ho 🖤
 
@@ -131,7 +121,7 @@ setTimeout(typeWriter,35);
 typeWriter();
 
 
-// 🎵 UNMUTE MUSIC ON FIRST TOUCH
+// 🔊 UNMUTE MUSIC ON FIRST TAP (mobile fix)
 document.body.addEventListener("click",()=>{
 bgMusic.muted=false;
 bgMusic.play();
@@ -140,14 +130,14 @@ bgMusic.play();
 
 // 😈 DARK NO BUTTON TEXTS
 const noTexts=[
-"Na bolne ka option hi nahi hai 😌",
+"Na bolne ka option hi nahi 😌",
 "Bhag ke kahan jaogi? 🖤",
-"Your heart is already mine 😈",
+"Your heart is mine 😈",
 "Still pretending? 😏",
 "You belong with me 🔥",
 "Say yes… surrender 😌",
 "Mine. Only mine. 💖",
-"Wanna kiss me instead? 💋",
+"Wanna kiss me? 💋",
 "Wanna fuck 😈",
 "Last chance to be mine 🖤"
 ];
@@ -169,23 +159,7 @@ noBtn.style.top=Math.random()*80+"vh";
 yesBtn.addEventListener("click",()=>{
 mainContent.style.display="none";
 celebration.style.display="flex";
-launchHearts();
 });
-
-
-// 💖 FLOATING HEARTS
-function launchHearts(){
-setInterval(()=>{
-const heart=document.createElement("div");
-heart.className="heart";
-heart.textContent="🖤";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*20+15)+"px";
-heart.style.animationDuration=(Math.random()*5+5)+"s";
-document.body.appendChild(heart);
-setTimeout(()=>heart.remove(),10000);
-},300);
-}
 
 </script>
 
